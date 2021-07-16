@@ -1,0 +1,16 @@
+* {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#grid-container{
+    display: grid;
+    height: 400px;
+    width: 400px;
+    padding-top: 90px;
+    padding-bottom: 50px;
+}
+.grid-element {
+    aspect-ratio: 1;
+    border: 1px solid black;
+}
