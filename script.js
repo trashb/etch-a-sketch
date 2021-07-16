@@ -1,4 +1,4 @@
-const gridContainer = document.querySelector("#grid-container");
+const gridContainer = document.getElementById("grid-container");
 
 function setDefaultSize() {
     setSize(16);
@@ -10,7 +10,7 @@ function setSize(size) {
   };
   
 function fillGrid(size) {
-  for (let i = 0; i < size * size; i++) {
+    for (let i = 0; i < size * size; i++) {
     const gridElement = document.createElement("div");
     gridElement.classList.add("grid-element");
     gridContainer.appendChild(gridElement);
@@ -21,8 +21,8 @@ function fillGrid(size) {
 function changeSize() {
     let newSize = prompt("Set a new gird size:");
     newSize = parseInt(newSize);
-    if (newSize < 3 || newSize > 100 || Number.isNaN(newSize) || newSize==null) {
-        alert("Invalid Input!");
+    if (newSize < 3 || newSize > 32 || Number.isNaN(newSize) || newSize==null) {
+        alert("Please input a number between 3 and 32!");
         changeSize();
     } else {
         clearGrid();
@@ -41,10 +41,9 @@ function changeColour() {
 };
 
 function clearGrid() {
-    let squares = gridContainer.querySelectorAll("div")
-    squares.forEach(function(square){
-        square.style.backgroundColor = "white";
-    });
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.lastChild);
+    }
 }
 
 setDefaultSize();
